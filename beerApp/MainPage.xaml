@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="beerApp.MainPage"
+             Appearing="goToPedia"
+             >
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Beerpedia!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <ListView x:Name="beerList" ItemTapped="beerList_ItemTapped"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="True">
+        <ListView.ItemTemplate FontSize="16">
+            <DataTemplate>
+                <ViewCell>
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Image Source="{Binding url_img}" WidthRequest="200" HeightRequest="200" />
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="Marca: "/>
+                                <Label Text="{Binding beer_name}"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="Vol% alcohol: "/>
+                                <Label Text="{Binding alcohol_grade}"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="País de origen: "/>
+                                <Label Text="{Binding country}"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="Sitio web: "/>
+                                <Label Text="{Binding url_site}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
